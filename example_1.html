@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+(function () {
+ // Id блока, в котором будет слайдер
+ let block = $("#rec472046124");
+ // Class элемента, в котором будет находиться слайдер
+ let wrap = $(".tn-elem__4720461241658843683933");
+ // Id блоков, которые будут слайдами
+ let slides = $("#rec473063289, #rec473058458, #rec473058785, #rec473058927, #rec473059038, #rec473059554, #rec473059704, #rec473060020, #rec473060194, #rec473060801, #rec473060892, #rec473061095, #rec473061374, #rec473061538");
+
+ wrap.addClass("tildoshnaya-slider-owl");
+ let box = wrap.find(".tn-atom");
+ box.append('<div class="owl-carousel owl-theme"></div>');
+ slides.appendTo(block.find('.owl-carousel'));
+ let owl = wrap.find('.owl-carousel').owlCarousel({
+  // Зациклить слайдер - true
+  // Без зацикленности - false
+     loop:true,
+     nav:false,
+     dots: false,
+     // Колличество карточек
+     items: 1,
+
+     // Адаптивность
+     responsive:{
+      // 0 это минимальная ширина экрана, при которой включается следующая часть кода
+         // 0:{
+         // items: 1 это колличество слайдов на экране
+         //     items:1
+         // },
+         0:{
+             items:1
+         },
+         640:{
+             items:1
+         },
+         960:{
+             items:1
+         },
+     }
+     // Адаптивность: конец
+ })
+
+
+ block.find("[href='#slider_left']").click(function(){
+  owl.trigger('prev.owl.carousel');
+ })
+ block.find("[href='#slider_right1']").click(function(){
+  owl.trigger('next.owl.carousel');
+ })
+}());
+</script>
+
+<script>
+function auto_play() {  $("[href='#slider_right1']").click()};
+var timemode = 3000; /* Скорость автослайдинга */
+var autoPlay = setInterval( auto_play, timemode );
+</script>
+
+
+<style>
+     /* Фоновое изображение */
+    /* Id блока, в котором будет слайдер */
+ #rec286812963  {
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+ }
+
+</style>

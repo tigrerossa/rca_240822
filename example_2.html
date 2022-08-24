@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+<script>
+  var content = $('#rec473705727, #rec473707137'); //id блоков с контентом
+  $('.anku-swiper-slider-full-1').addClass('swiper-container');
+  var box = $('.anku-swiper-slider-full-1 .tn-atom').addClass('swiper-wrapper');
+  $(content).addClass('swiper-slide').appendTo(box);
+  var AnkuSwiperSliderFull = new Swiper(".anku-swiper-slider-full-1", {
+    loop: true,
+    pagination: {
+      el: ".anku-swiper-full-pagination-1",
+      clickable: true,
+    },
+    navigation: {
+          nextEl: ".full-next-1",
+          prevEl: ".full-prev-1",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,//кол-во одновременно видимых слайдов на экране, при указанном разрешении экрана
+        spaceBetween: 20,//расстояние между слайдами при указанном разрешении дисплея
+      },
+      480: {
+        slidesPerView: 1,//кол-во одновременно видимых слайдов на экране, при указанном разрешении экрана
+        spaceBetween: 20,//расстояние между слайдами при указанном разрешении дисплея
+      },
+      640: {
+        slidesPerView: 1,//кол-во одновременно видимых слайдов на экране, при указанном разрешении экрана
+        spaceBetween: 20,//расстояние между слайдами при указанном разрешении дисплея
+      },
+      960: {
+        slidesPerView: 1,//кол-во одновременно видимых слайдов на экране, при указанном разрешении экрана
+        spaceBetween: 20,//расстояние между слайдами при указанном разрешении дисплея
+      },
+      1200: {
+        slidesPerView: 1,//кол-во одновременно видимых слайдов на экране, при указанном разрешении экрана
+        spaceBetween: 40,//расстояние между слайдами при указанном разрешении дисплея
+      }
+    }
+  });
+
+  AnkuSwiperSliderFull.on('slideChange', function() {
+    setTimeout(function() {
+      t_lazyload_update()
+      $('.swiper-slide div[data-animate-sbs-event="blockintoview"]').removeClass('t-sbs-anim_started');
+    }, 100);
+    setTimeout(function() {
+      $('.swiper-slide-active div[data-animate-sbs-event="blockintoview"]').addClass('t-sbs-anim_started');
+    }, 300);
+  });
+  $('.swiper-pagination-bullet').click(function() {
+    setTimeout(function() {
+      t_lazyload_update()
+    }, 100);
+    setTimeout(function() {
+      $('.swiper-slide-active div[data-animate-sbs-event="blockintoview"]').addClass('t-sbs-anim_started');
+    }, 300);
+  });
+
+</script>
+
+<style>
+  :root {
+    --bullet-bg:#f7e8d9;/*Цвет точки пагинации*/
+    --bullet-active-bg:#000;/*Цвет АКТИВНОЙ точки пагинации*/
+    --bullet-h:10px;/*Высота точки пагинации*/
+    --bullet-w:10px;/*Ширина точки пагинации*/
+    --bullet-opacity:1;/*Непрозрачность точки пагинации - сейчас 100% | .1 - 10% , .2 - 20% , .7 - 70%, допустимо .35 , .37 , так же 0.35 , 0,3 и т.д. */
+  }
+
+
+  .anku-swiper-slider-full-1.swiper-container {
+    position: absolute;
+    display: block;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .swiper-wrapper {
+    display: flex !important;
+  }
+  .full-next,
+  .full-prev {
+    cursor:pointer;
+  }
+  .anku-swiper-full-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-pagination-bullet {
+    background: var(--bullet-bg);
+    width:var(--bullet-w);
+    height:var(--bullet-h);
+    opacity: var(--bullet-opacity);
+  }
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: var(--bullet-active-bg);
+  }
+</style>
